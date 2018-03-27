@@ -1,0 +1,102 @@
+<!-- LOGIN COMPONENT -->
+<div class="customform">
+  <mat-card>
+    <mat-card-header class="customform__header">
+      <mat-card-title><h2>Log in</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="customform__form">
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" type="password" required>
+            <mat-icon matSuffix>visibility_off</mat-icon>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions class="customform__actions">
+          <button mat-raised-button color="accent">Login</button>
+          <p class="customform__registerinfo">Don't have account yet? <a routerLink=".">Register</a></p>
+      </mat-card-actions>
+  </mat-card>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- CHIPS LIST -->
+      <mat-chip-list>
+        <mat-chip>Filter 1</mat-chip>
+        <mat-chip>Filter 2</mat-chip>
+        <mat-chip color="primary" selected="true">Filter 3</mat-chip>
+        <mat-chip color="accent" selected="true">Filter 4</mat-chip>
+      </mat-chip-list>
+      <!-- SLIDE TOGGLE -->
+      <mat-slide-toggle>Free only!</mat-slide-toggle>
+      <!-- SEARCH -->
+      <form>
+        <mat-form-field>
+          <input matInput>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile>
+        <div>
+            <mat-card>
+              <mat-card-header>
+                <img mat-card-avatar src="../../../assets/mock.jpg">
+                <mat-card-title><h3>Agricola</h3></mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div>STATUS: Wolna/Zajęta</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, ommodo consequat.</p>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button mat-raised-button color="accent">Wypożycz/Oddaj</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="game">
+          <mat-card class="game__card">
+            <mat-card-header>
+              <img mat-card-avatar src="../../../assets/mock.jpg">
+              <mat-card-title><h3>Agricola</h3></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div>STATUS: Wolna/Zajęta</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, ommodo consequat.</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent">Wypożycz/Oddaj</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div>
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-avatar src="../../../assets/mock.jpg">
+            <mat-card-title><h3>Agricola</h3></mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div>STATUS: Wolna/Zajęta</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, ommodo consequat.</p>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-raised-button color="accent">Wypożycz/Oddaj</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+</mat-grid-tile>
+</mat-grid-list>
+<!-- MODAL -->

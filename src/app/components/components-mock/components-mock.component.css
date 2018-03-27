@@ -1,0 +1,29 @@
+.customform {
+  width: 40%;
+  margin: 150px auto;
+}
+.customform-header {
+  margin: 0;
+}
+.customform__form {
+  display: flex;
+  flex-direction: column;
+}
+.customform__registerinfo {
+  font-size: 12px;
+}
+.customform__actions {
+  margin: 0;
+}
+
+
+.game__card {
+  margin: 30px;
+}
+
+
+.toolbar .mat-chip-list,
+.toolbar .mat-slide-toggle,
+.toolbar form {
+  margin-right: 30px;
+}
