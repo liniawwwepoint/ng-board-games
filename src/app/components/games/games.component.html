@@ -1,0 +1,8 @@
+
+<!-- POPRAWIĆ *ngIF tak, żeby działało ;) -->
+<div *ngIf="(games | async)?.length > 0; else noGames">
+    <p #content *ngFor="let game of (games | async)">
+      {{ game.name }} || {{ game.description }}
+    </p>
+    <ng-template #noGames>Nie ma gier.</ng-template>
+</div>

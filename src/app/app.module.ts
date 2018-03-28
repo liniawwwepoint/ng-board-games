@@ -1,24 +1,29 @@
+import { GamesService } from './services/games.service';
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatButtonModule,
-        MatCheckboxModule,
-        MatCardModule,
-        MatMenuModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatGridListModule,
-        MatSlideToggleModule,
-        MatChipsModule } from '@angular/material';
+import { MatButtonModule,
+         MatCheckboxModule,
+         MatCardModule,
+         MatMenuModule,
+         MatToolbarModule,
+         MatIconModule,
+         MatFormFieldModule,
+         MatInputModule,
+         MatGridListModule,
+         MatSlideToggleModule,
+         MatChipsModule } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { ComponentsMockComponent } from './components/components-mock/components-mock.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { GamesComponent } from './components/games/games.component';
 
 
 @NgModule({
@@ -27,7 +32,8 @@ import { AppRoutingModule } from './/app-routing.module';
     NavbarComponent,
     DashboardComponent,
     UserDetailsComponent,
-    ComponentsMockComponent
+    ComponentsMockComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +49,11 @@ import { AppRoutingModule } from './/app-routing.module';
     MatGridListModule,
     MatSlideToggleModule,
     MatChipsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [GamesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
