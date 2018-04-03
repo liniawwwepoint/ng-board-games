@@ -7,14 +7,23 @@ import { Observable } from 'rxjs/Observable';
 export class GamesService {
 
   gamesCollection: AngularFirestoreCollection<Game>;
-  games: Observable<any[]>;
+  game$: Observable<Game[]>;
 
   constructor(public afs: AngularFirestore) {
-    // this.gamesCollection = this.afs.collection('games');
-    this.games = afs.collection('games').valueChanges();
+    this.gamesCollection = this.afs.collection('games');
    }
-
+  
    getGames(): Observable<Game[]> {
-    return this.games;
-   }
+   // get games with the id
+   this.game$ = this.gamesCollection.snapshotChanges()
+     .map(changes => {
+       return changes.map(action => {
+         const data = action.payload.doc.data() as Game;
+         data.id = action.payload.doc.id;
+         return data;
+       });
+     });
+   return this.game$;
+  }
+
 }

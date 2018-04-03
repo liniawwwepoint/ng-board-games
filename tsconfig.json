@@ -20,6 +20,6 @@
       "@components/*" : ["./app/components/*"],
       "@models/*"     : ["./app/models/*"],
       "@mocks/*"      : ["./app/mocks/*"]
-    },
+    }
   }
 }

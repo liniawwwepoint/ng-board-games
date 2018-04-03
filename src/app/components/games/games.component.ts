@@ -10,17 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamesComponent implements OnInit {
 
-  games: Observable<Game[]>;
+  game$: Observable<Game[]>;
 
   constructor(private gamesService: GamesService) { }
 
   ngOnInit() {
-    // this.gamesService.getGames().subscribe(games => {
-    //   this.games = games;
-    // });
-    // this.gamesService.getGames().subscribe(games => {
-      this.games = this.gamesService.getGames();
-    // });
-  }
-
+    this.game$ = this.gamesService.getGames();
+}
 }
