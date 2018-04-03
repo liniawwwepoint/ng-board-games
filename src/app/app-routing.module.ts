@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
@@ -6,21 +8,23 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-    {path: '', component: DashboardComponent },
-    {path: 'user', component: UserDetailsComponent },
-    {path: 'components-mock', component: ComponentsMockComponent}
+  {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'user', component: UserDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'components-mock', component: ComponentsMockComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({
-    exports: [
-        RouterModule
-    ],
+  exports: [
+    RouterModule
+  ],
   imports: [
     RouterModule.forRoot(routes)
   ],
-  declarations: []
+  providers: [
+    AuthGuard
+  ]
 })
 export class AppRoutingModule {
 
-
- }
+}

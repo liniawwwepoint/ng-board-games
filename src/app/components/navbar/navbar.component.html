@@ -10,4 +10,7 @@
             User
         </a>
     </mat-menu>
+    <button *ngIf="!isLoggedIn" mat-button routerLink="/login">Login</button>
+    <button *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
+    <button *ngIf="isLoggedIn" mat-button routerLink="/user">{{loggedInUser}}</button>
 </mat-toolbar>

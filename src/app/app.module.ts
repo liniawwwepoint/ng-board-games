@@ -1,10 +1,13 @@
+import { AuthService } from './services/auth.service';
 import { GamesService } from './services/games.service';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,6 +27,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { ComponentsMockComponent } from './components/components-mock/components-mock.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { GamesComponent } from './components/games/games.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -33,7 +37,8 @@ import { GamesComponent } from './components/games/games.component';
     DashboardComponent,
     UserDetailsComponent,
     ComponentsMockComponent,
-    GamesComponent
+    GamesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +55,15 @@ import { GamesComponent } from './components/games/games.component';
     MatSlideToggleModule,
     MatChipsModule,
     AppRoutingModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
-  providers: [GamesService],
+  providers: [
+    GamesService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

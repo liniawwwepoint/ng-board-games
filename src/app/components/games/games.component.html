@@ -1,7 +1,30 @@
-
-<div *ngIf="(game$ | async) as games ; else loading">
-    <p *ngFor="let game of games">
-      {{ game.name }} || {{ game.description }}
-    </p>
+<div *ngIf="(game$ | async) as games; else loading">
+  <mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let game of games">
+          <mat-card>
+            <mat-card-header>
+              <img mat-card-avatar src="../../../assets/mock.jpg">
+              <mat-card-title>
+                <h3>
+                  {{game.name}}
+                </h3>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div>
+                Status: 
+                <span *ngIf="game.isAvailable">Wolna</span>
+                <span *ngIf="!game.isAvailable">Wypożyczona</span>
+                <h3 *ngIf="!game.isAvailable">{{game.borrowDate | date:'short'}}</h3>
+              </div>
+              <p>{{game.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="accent">Wypożycz</button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
+
 <ng-template #loading>Wczytuję gry...</ng-template>
