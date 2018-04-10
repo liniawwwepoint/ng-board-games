@@ -1,5 +1,5 @@
 <div *ngIf="(game$ | async) as games; else loading">
-  <mat-grid-list cols="3">
+  <mat-grid-list cols="4">
     <mat-grid-tile *ngFor="let game of games">
           <mat-card>
             <mat-card-header>
@@ -13,14 +13,18 @@
             <mat-card-content>
               <div>
                 Status: 
-                <span *ngIf="game.isAvailable">Wolna</span>
-                <span *ngIf="!game.isAvailable">Wypożyczona</span>
-                <h3 *ngIf="!game.isAvailable">{{game.borrowDate | date:'short'}}</h3>
+                <span *ngIf="game.isAvailable; else borrowedGame">Wolna</span>
+                <ng-template #borrowedGame>
+                  <span >Wypożyczona</span>
+                  <h3>{{game.borrowDate | date:'short'}}</h3>
+                  <h3 *ngIf="game.borrower !== borrower">Wypożyczona przez: {{game.borrower}}</h3>
+                </ng-template>
               </div>
               <p>{{game.description}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="accent">Wypożycz</button>
+              <button *ngIf="game.isAvailable" (click)="borrowGame(game)" mat-raised-button color="accent">Wypożycz</button>
+              <button *ngIf="!game.isAvailable && game.borrower === borrower" (click)="returnGame(game)" mat-raised-button color="accent">Zwróc</button>
             </mat-card-actions>
           </mat-card>
     </mat-grid-tile>

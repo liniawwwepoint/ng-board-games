@@ -3,6 +3,6 @@ export interface Game {
   name: string;
   description: string;
   isAvailable: boolean;
-  borrower: string;
-  borrowDate: Date;
+  borrower?: string;
+  borrowDate?: Date;
 }

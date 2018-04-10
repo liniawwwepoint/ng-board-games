@@ -28,6 +28,7 @@ import { ComponentsMockComponent } from './components/components-mock/components
 import { AppRoutingModule } from './/app-routing.module';
 import { GamesComponent } from './components/games/games.component';
 import { LoginComponent } from './components/login/login.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FlashMessagesModule.forRoot(),
     AngularFirestoreModule,
     FormsModule
   ],
