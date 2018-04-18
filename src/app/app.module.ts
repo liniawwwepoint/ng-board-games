@@ -29,6 +29,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { GamesComponent } from './components/games/games.component';
 import { LoginComponent } from './components/login/login.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     UserDetailsComponent,
     ComponentsMockComponent,
     GamesComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Observable } from 'rxjs/Observable';
 import { Game } from './../../models/game';
 import { GamesService } from './../../services/games.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 
 @Component({
@@ -11,10 +11,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.css']
 })
-export class GamesComponent implements OnInit {
+export class GamesComponent implements OnInit, OnDestroy {
 
   game$: Observable<Game[]>;
   borrower: string;
+  subscription: any;
 
   constructor(
     private gamesService: GamesService,
@@ -25,7 +26,7 @@ export class GamesComponent implements OnInit {
 
   ngOnInit() {
     this.game$ = this.gamesService.getGames();
-    this.authService.getAuth().subscribe(auth => {
+    this.subscription = this.authService.getAuth().subscribe(auth => {
         this.borrower = auth.email;
     })
   }
@@ -48,4 +49,7 @@ export class GamesComponent implements OnInit {
       });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
