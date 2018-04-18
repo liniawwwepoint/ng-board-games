@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyDdlqp42YGF8_2rXIMWqKs5h2eC-fgdwU0',
-    authDomain: 'local-board-games-dblaszczak.firebaseapp.com',
-    databaseURL: 'https://local-board-games-dblaszczak.firebaseio.com',
-    projectId: 'local-board-games-dblaszczak',
-    storageBucket: 'local-board-games-dblaszczak.appspot.com',
-    messagingSenderId: '936781378478'
+    apiKey: "AIzaSyB5vC7gpNR0VZtoJAZQQOR9Iex_rLiHvsU",
+    authDomain: "local-board-games-placzycki.firebaseapp.com",
+    databaseURL: "https://local-board-games-placzycki.firebaseio.com",
+    projectId: "local-board-games-placzycki",
+    storageBucket: "local-board-games-placzycki.appspot.com",
+    messagingSenderId: "195009016009"
   }
 };
