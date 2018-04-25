@@ -18,7 +18,6 @@ export class AuthService {
   ) {
     this.usersCollection = this.afs.collection('users');
     this.firebaseAuthService = this.afAuth.auth;
-    console.log(this.afAuth.auth);
   }
 
   login(email: string, password: string) {
