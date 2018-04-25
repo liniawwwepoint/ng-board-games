@@ -4,9 +4,8 @@ export interface Roles {
 }
 
 export interface User {
-    id: string;
-    firstName: string;
+    email: string;
     roles: Roles;
+    firstName?: string;
     lastName?: string;
-    email?: string;
 }
