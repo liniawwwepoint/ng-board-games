@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { mergeMap } from 'rxjs/operators';
 import { User } from './../models/user';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -10,6 +12,7 @@ export class AuthService {
 
   usersCollection: AngularFirestoreCollection<User>;
   firebaseAuthService: FirebaseAuth;
+  currentUser$: Observable<any>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -18,6 +21,7 @@ export class AuthService {
   ) {
     this.usersCollection = this.afs.collection('users');
     this.firebaseAuthService = this.afAuth.auth;
+    this.currentUser$ = this.afAuth.authState.pipe(mergeMap(({uid}) => this.usersCollection.doc(uid).valueChanges()));
   }
 
   login(email: string, password: string) {
@@ -50,8 +54,7 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut();
   }
-
   getAuth() {
-    return this.afAuth.authState.map(auth => auth);
+    
   }
 }

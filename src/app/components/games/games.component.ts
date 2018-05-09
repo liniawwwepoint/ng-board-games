@@ -26,9 +26,10 @@ export class GamesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.game$ = this.gamesService.getGames();
-    this.subscription = this.authService.getAuth().subscribe(auth => {
-        this.borrower = auth.email;
-    })
+    this.subscription = this.authService.currentUser$;
+    // this.subscription = this.authService.getAuth().subscribe(auth => {
+    //     this.borrower = auth.email;
+    // })
   }
 
   borrowGame(game: Game) {
@@ -50,6 +51,6 @@ export class GamesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }
