@@ -17,14 +17,14 @@
                 <ng-template #borrowedGame>
                   <span >Wypożyczona</span>
                   <h3>{{game.borrowDate | date:'short'}}</h3>
-                  <h3 *ngIf="game.borrower !== currentUser">Wypożyczona przez: {{game.borrower}}</h3>
+                  <h3 *ngIf="game.borrower !== (currentUser$ | async)?.email">Wypożyczona przez: {{game.borrower}}</h3>
                 </ng-template>
               </div>
               <p>{{game.description}}</p>
             </mat-card-content>
             <mat-card-actions>
               <button *ngIf="game.isAvailable" (click)="borrowGame(game)" mat-raised-button color="accent">Wypożycz</button>
-              <button *ngIf="!game.isAvailable && game.borrower === currentUser" (click)="returnGame(game)" mat-raised-button color="accent">Zwróc</button>
+              <button *ngIf="!game.isAvailable && game.borrower === (currentUser$ | async)?.email" (click)="returnGame(game)" mat-raised-button color="accent">Zwróc</button>
             </mat-card-actions>
           </mat-card>
     </mat-grid-tile>

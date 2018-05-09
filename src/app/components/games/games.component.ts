@@ -31,13 +31,14 @@ export class GamesComponent implements OnInit {
   }
 
   borrowGame(game: Game) {
-    this.gamesService.borrowGame(game, this.currentUser$)
-      .subscribe(() => {
+    this.gamesService.borrowGame(game, this.currentUser$).subscribe(() =>
+      {
         this.flashMessage.show('Gra wypożyczona', {cssClass: 'alert-success', timeout: 3000})
       },
-      (err) => {
-        this.flashMessage.show(err, {cssClass: 'alert-danger', timeout: 3000})
-      })
+        (err) => {
+          this.flashMessage.show(err, {cssClass: 'alert-danger', timeout: 3000})
+      }
+    )
   }
 
   returnGame(game: Game) {
