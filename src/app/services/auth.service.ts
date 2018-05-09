@@ -6,6 +6,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuth } from '@firebase/auth-types';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/observable/empty' 
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,14 @@ export class AuthService {
   ) {
     this.usersCollection = this.afs.collection('users');
     this.firebaseAuthService = this.afAuth.auth;
-    this.currentUser$ = this.afAuth.authState.pipe(mergeMap(({uid}) => this.usersCollection.doc(uid).valueChanges()));
+    this.currentUser$ = this.afAuth.authState.pipe(mergeMap((state) => {
+        if(state && state.uid) {
+          return this.usersCollection.doc(state.uid).valueChanges();
+        } else {
+          return Observable.of(null);
+        }
+      }
+    ));
   }
 
   login(email: string, password: string) {
@@ -55,6 +63,6 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
   getAuth() {
-    
+
   }
 }

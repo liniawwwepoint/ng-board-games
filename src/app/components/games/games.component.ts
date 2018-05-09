@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { AuthService } from './../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Observable } from 'rxjs/Observable';
@@ -11,11 +12,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.css']
 })
-export class GamesComponent implements OnInit, OnDestroy {
+export class GamesComponent implements OnInit {
 
   game$: Observable<Game[]>;
-  borrower: string;
-  subscription: any;
+  currentUser: string;
+  currentUser$: Observable<User>;
 
   constructor(
     private gamesService: GamesService,
@@ -26,19 +27,17 @@ export class GamesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.game$ = this.gamesService.getGames();
-    this.subscription = this.authService.currentUser$;
-    // this.subscription = this.authService.getAuth().subscribe(auth => {
-    //     this.borrower = auth.email;
-    // })
+    this.currentUser$ = this.authService.currentUser$;
   }
 
   borrowGame(game: Game) {
-    this.gamesService.borrowGame(game, this.borrower)
-      .then(() => 
-        this.flashMessage.show('Gra wypożyczona', {cssClass: 'alert-success', timeout: 3000}))
-      .catch((err) => {
+    this.gamesService.borrowGame(game, this.currentUser$)
+      .subscribe(() => {
+        this.flashMessage.show('Gra wypożyczona', {cssClass: 'alert-success', timeout: 3000})
+      },
+      (err) => {
         this.flashMessage.show(err, {cssClass: 'alert-danger', timeout: 3000})
-      });
+      })
   }
 
   returnGame(game: Game) {
@@ -48,9 +47,5 @@ export class GamesComponent implements OnInit, OnDestroy {
       .catch((err) => {
         this.flashMessage.show(err, {cssClass: 'alert-danger', timeout: 3000})
       });
-  }
-
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
   }
 }
