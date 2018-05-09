@@ -30,6 +30,7 @@ import { GamesComponent } from './components/games/games.component';
 import { LoginComponent } from './components/login/login.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RegisterComponent } from './components/register/register.component';
+import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { RegisterComponent } from './components/register/register.component';
     ComponentsMockComponent,
     GamesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ManageGamesComponent
   ],
   imports: [
     BrowserModule,

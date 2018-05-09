@@ -4,8 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-
+export class AdminGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -14,8 +13,8 @@ export class AuthGuard implements CanActivate {
   
   canActivate(): Observable<boolean> {
     return this.authService.currentUser$.map(user => {
-      if(!user) {
-        this.redirectToLogin();
+      if(!user.roles.admin) {
+        this.redirectToDashboard();
         return false;
       } else {
         return true;
@@ -23,8 +22,7 @@ export class AuthGuard implements CanActivate {
     })
   };
 
-  redirectToLogin(): void {
-    this.router.navigate(['/login']);
+  redirectToDashboard(): void {
+    this.router.navigate(['/']);
   }
 }
-

@@ -1,3 +1,5 @@
+import { AdminGuard } from './guards/admin.guard';
+import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +15,7 @@ const routes: Routes = [
   {path: 'user', component: UserDetailsComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'manage-games', component: ManageGamesComponent, canActivate: [AuthGuard, AdminGuard]},
   {path: 'components-mock', component: ComponentsMockComponent, canActivate: [AuthGuard]}
 ]
 
@@ -24,7 +27,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AdminGuard
   ]
 })
 export class AppRoutingModule {
