@@ -1,0 +1,11 @@
+<div *ngIf="(game$ | async) as games; else loading">
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let game of games">
+      <mat-icon mat-list-icon>folder</mat-icon>
+    <h4 mat-line>{{game.name}}</h4>
+    <p mat-line> {{game.isAvailable}} </p>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<ng-template #loading>Wczytuję gry...</ng-template>

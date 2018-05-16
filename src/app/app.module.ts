@@ -21,7 +21,8 @@ import { MatButtonModule,
          MatInputModule,
          MatGridListModule,
          MatSlideToggleModule,
-         MatChipsModule } from '@angular/material';
+         MatChipsModule,
+         MatListModule } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { ComponentsMockComponent } from './components/components-mock/components-mock.component';
@@ -31,6 +32,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RegisterComponent } from './components/register/register.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
+import { GamesListCompactComponent } from './components/games-list-compact/games-list-compact.component';
+import { GamesListCompactItemComponent } from './components/games-list-compact-item/games-list-compact-item.component';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { ManageGamesComponent } from './components/manage-games/manage-games.com
     GamesComponent,
     LoginComponent,
     RegisterComponent,
-    ManageGamesComponent
+    ManageGamesComponent,
+    GamesListCompactComponent,
+    GamesListCompactItemComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ import { ManageGamesComponent } from './components/manage-games/manage-games.com
     MatGridListModule,
     MatSlideToggleModule,
     MatChipsModule,
+    MatListModule,
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
