@@ -1,8 +1,9 @@
 import { GamesListCompactItemComponent } from './../games-list-compact-item/games-list-compact-item.component';
 import { GamesService } from './../../services/games.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Game } from './../../models/game';
+
 
 @Component({
   selector: 'app-games-list-compact',
@@ -12,6 +13,7 @@ import { Game } from './../../models/game';
 export class GamesListCompactComponent implements OnInit {
 
   game$: Observable<Game[]>;
+  @ViewChild(GamesListCompactItemComponent) gameViewChild: GamesListCompactItemComponent; 
 
   constructor(
     private gamesService: GamesService
