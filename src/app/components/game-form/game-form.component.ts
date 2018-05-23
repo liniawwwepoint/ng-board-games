@@ -17,7 +17,6 @@ export class GameFormComponent implements OnInit {
     this.myform = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]), 
       description: new FormControl('', [Validators.required, Validators.minLength(8)]),
-  })
+    })
   }
-
 }

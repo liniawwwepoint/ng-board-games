@@ -39,6 +39,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { ActionsGameComponent } from './components/actions-game/actions-game.component';
+import { ModalHostDirective } from './directives/modal-host.directive';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ActionsGameComponent } from './components/actions-game/actions-game.com
     ModalComponent,
     GameFormComponent,
     EditGameComponent,
-    ActionsGameComponent
+    ActionsGameComponent,
+    ModalHostDirective
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,9 @@ import { ActionsGameComponent } from './components/actions-game/actions-game.com
     ReactiveFormsModule
   ],
   entryComponents: [
-    EditGameComponent
+    EditGameComponent,
+    GameFormComponent,
+    ModalComponent
   ],
   providers: [
     GamesService,
