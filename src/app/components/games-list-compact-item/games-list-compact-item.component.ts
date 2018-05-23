@@ -1,5 +1,4 @@
 import { ModalComponent } from './../modal/modal.component';
-import { GameFormComponent } from './../game-form/game-form.component';
 import { EditGameComponent } from './../edit-game/edit-game.component';
 import { Game } from './../../models/game';
 import { Component, OnInit, Input } from '@angular/core';

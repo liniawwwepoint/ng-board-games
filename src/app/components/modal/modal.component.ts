@@ -1,5 +1,4 @@
 import { ModalHostDirective } from './../../directives/modal-host.directive';
-import { GameFormComponent } from './../game-form/game-form.component';
 import { Component, OnInit, Inject, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
