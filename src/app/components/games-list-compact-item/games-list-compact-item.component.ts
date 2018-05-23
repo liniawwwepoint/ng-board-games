@@ -23,7 +23,10 @@ export class GamesListCompactItemComponent implements OnInit {
   openDialog(): void {
     this.dialog.open(ModalComponent, {
       width: '400px',
-      data: EditGameComponent
+      data: {
+        component: EditGameComponent,
+        payload: this.game
+      }
     });
   }
 }

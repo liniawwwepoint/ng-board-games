@@ -1,3 +1,4 @@
+import { ModalContent } from './../../models/modal-content';
 import { ModalHostDirective } from './../../directives/modal-host.directive';
 import { Component, OnInit, Inject, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -18,8 +19,9 @@ export class ModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.data);
-    this.host.viewContainerRef.createComponent(componentFactory);
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.data.component);
+    let component = this.host.viewContainerRef.createComponent(componentFactory);
+    (<ModalContent>component.instance).data = this.data.payload;
   }
 
   onNoClick(): void {

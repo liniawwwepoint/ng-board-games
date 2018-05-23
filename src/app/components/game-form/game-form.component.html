@@ -1,14 +1,16 @@
-<form [formGroup]="myform" (ngSubmit)="save(myForm.value, myForm.valid)">
+<form [formGroup]="myForm" (ngSubmit)="submit(myForm.value, myForm.valid)">
   <mat-form-field>
     <label>Tytuł</label>
-    <input matInput
+    <input
+      matInput
       formControlName="name"
       type="text"
       required>
   </mat-form-field>
   <mat-form-field>
     <label>Opis</label>
-    <textarea matInput
+    <textarea
+      matInput
       formControlName="description"
       required
       type="text">
