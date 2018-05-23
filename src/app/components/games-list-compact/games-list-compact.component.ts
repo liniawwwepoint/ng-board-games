@@ -13,7 +13,7 @@ import { Game } from './../../models/game';
 export class GamesListCompactComponent implements OnInit {
 
   game$: Observable<Game[]>;
-  @ViewChild(GamesListCompactItemComponent) gameViewChild: GamesListCompactItemComponent; 
+  @ViewChild(GamesListCompactItemComponent) gameViewChild: GamesListCompactItemComponent;
 
   constructor(
     private gamesService: GamesService

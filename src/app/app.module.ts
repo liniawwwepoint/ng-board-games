@@ -22,7 +22,8 @@ import { MatButtonModule,
          MatGridListModule,
          MatSlideToggleModule,
          MatChipsModule,
-         MatListModule } from '@angular/material';
+         MatListModule,
+         MatDialogModule } from '@angular/material';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { ComponentsMockComponent } from './components/components-mock/components-mock.component';
@@ -34,6 +35,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import { GamesListCompactComponent } from './components/games-list-compact/games-list-compact.component';
 import { GamesListCompactItemComponent } from './components/games-list-compact-item/games-list-compact-item.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { GameFormComponent } from './components/game-form/game-form.component';
 
 
 @NgModule({
@@ -48,7 +51,9 @@ import { GamesListCompactItemComponent } from './components/games-list-compact-i
     RegisterComponent,
     ManageGamesComponent,
     GamesListCompactComponent,
-    GamesListCompactItemComponent
+    GamesListCompactItemComponent,
+    ModalComponent,
+    GameFormComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +70,7 @@ import { GamesListCompactItemComponent } from './components/games-list-compact-i
     MatSlideToggleModule,
     MatChipsModule,
     MatListModule,
+    MatDialogModule,
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -76,6 +82,7 @@ import { GamesListCompactItemComponent } from './components/games-list-compact-i
     GamesService,
     AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

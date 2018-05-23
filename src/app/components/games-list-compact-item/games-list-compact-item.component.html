@@ -1,8 +1,9 @@
  <mat-list-item role="listitem" >
    <mat-icon mat-list-icon>folder</mat-icon>
-    <h4 mat-line>{{game.name}}</h4>
-    <p mat-line> {{game.isAvailable}} </p>
+    <h4 mat-line>{{asd.name}}</h4>
+    <p mat-line> {{asd.description}} </p>
 
-  <button mat-raised-button color="accent">Edytuj <mat-icon mat-list-icon>edit</mat-icon></button>
+  <button mat-raised-button color="accent" (click)="openDialog()">Edytuj <mat-icon mat-list-icon>edit</mat-icon></button>
   <button mat-raised-button color="#FF0000">Usuń <mat-icon mat-list-icon>edit</mat-icon></button>
  </mat-list-item>
+ <ng-content></ng-content>

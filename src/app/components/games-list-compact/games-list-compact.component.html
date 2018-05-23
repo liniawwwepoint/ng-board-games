@@ -1,7 +1,8 @@
 <div *ngIf="(game$ | async) as games; else loading">
   <mat-list role="list">
-    
-    <app-games-list-compact-item *ngFor="let g of games" [game]="g"></app-games-list-compact-item>
+
+    <app-games-list-compact-item *ngFor="let game of games" [asd]="game">
+      <mat-divider></mat-divider></app-games-list-compact-item>
   </mat-list>
 </div>
 
