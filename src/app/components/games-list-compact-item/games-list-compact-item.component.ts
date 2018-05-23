@@ -1,5 +1,7 @@
+import { ModalComponent } from './../modal/modal.component';
 import { Game } from './../../models/game';
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-games-list-compact-item',
@@ -7,11 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./games-list-compact-item.component.css']
 })
 export class GamesListCompactItemComponent implements OnInit {
-  @Input('game') game: Game;
 
-  constructor() { }
+  @Input('gameItem') game: Game;
+
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
 
+  openDialog(): void {
+    this.dialog.open(ModalComponent, {
+      width: '400px'
+    });
+  }
 }

@@ -3,6 +3,7 @@
     <h4 mat-line>{{game.name}}</h4>
     <p mat-line> {{game.isAvailable}} </p>
 
-  <button mat-raised-button color="accent">Edytuj <mat-icon mat-list-icon>edit</mat-icon></button>
-  <button mat-raised-button color="#FF0000">Usuń <mat-icon mat-list-icon>edit</mat-icon></button>
+  <button mat-raised-button color="accent" (click)="openDialog()" >Edytuj <mat-icon mat-list-icon>edit</mat-icon></button>
+  <button mat-raised-button color="#FF0000">Usuń <mat-icon mat-list-icon>delete</mat-icon></button>
+  <ng-content></ng-content>
  </mat-list-item>
