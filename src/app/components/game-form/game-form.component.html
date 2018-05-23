@@ -1,10 +1,18 @@
-<form novalidate>
+<form [formGroup]="myform" (ngSubmit)="save(myForm.value, myForm.valid)">
   <mat-form-field>
     <label>Tytuł</label>
-    <input matInput type="text">
+    <input matInput
+      formControlName="name"
+      type="text"
+      required>
   </mat-form-field>
   <mat-form-field>
     <label>Opis</label>
-    <textarea matInput type="text"></textarea>
+    <textarea matInput
+      formControlName="description"
+      required
+      type="text">
+    </textarea>
   </mat-form-field>
+   <button type="submit">Submit</button>
 </form>
