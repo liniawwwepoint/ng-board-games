@@ -1,4 +1,4 @@
-import { ModalComponent } from './../modal/modal.component';
+import { EditGameComponent } from './../edit-game/edit-game.component';
 import { Game } from './../../models/game';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
@@ -20,7 +20,7 @@ export class GamesListCompactItemComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(ModalComponent, {
+    this.dialog.open(EditGameComponent, {
       width: '400px'
     });
   }

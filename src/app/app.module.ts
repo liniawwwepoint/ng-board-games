@@ -37,6 +37,8 @@ import { GamesListCompactComponent } from './components/games-list-compact/games
 import { GamesListCompactItemComponent } from './components/games-list-compact-item/games-list-compact-item.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
+import { EditGameComponent } from './components/edit-game/edit-game.component';
+import { ActionsGameComponent } from './components/actions-game/actions-game.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { GameFormComponent } from './components/game-form/game-form.component';
     GamesListCompactComponent,
     GamesListCompactItemComponent,
     ModalComponent,
-    GameFormComponent
+    GameFormComponent,
+    EditGameComponent,
+    ActionsGameComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,7 @@ import { GameFormComponent } from './components/game-form/game-form.component';
     FormsModule
   ],
   entryComponents: [
-    ModalComponent
+    EditGameComponent
   ],
   providers: [
     GamesService,

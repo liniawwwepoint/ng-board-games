@@ -1,3 +1,4 @@
+import { Game } from './../../models/game';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
