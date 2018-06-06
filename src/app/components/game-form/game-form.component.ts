@@ -14,7 +14,7 @@ export class GameFormComponent implements OnInit {
   myForm: FormGroup;
   @Input() game: Game;
 
-  constructor( ) { }
+  constructor(private gameService: GamesService) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -23,7 +23,12 @@ export class GameFormComponent implements OnInit {
     })
   }
 
-  submit(a,b) {
-    
+  submit(updatedGame, isValid) {
+    if(isValid) {
+      this.game.name = updatedGame.name;
+      this.game.description = updatedGame.description;
+
+      this.gameService.updateGame(this.game);
+    }
   }
 }

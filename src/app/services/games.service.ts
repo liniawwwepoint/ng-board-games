@@ -42,6 +42,11 @@ export class GamesService {
     }))
   }
 
+  updateGame(game: Game) {
+    Observable.fromPromise(
+      this.gamesCollection.doc(game.id).update(game))
+  }
+
   returnGame(game: Game) {
     return new Promise((resolve, reject) => 
       this.gamesCollection.doc(game.id).update({isAvailable: true})
