@@ -1,7 +1,7 @@
 import { ModalContent } from './../../models/modal-content';
 import { GamesService } from './../../services/games.service';
 import { Game } from './../../models/game';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ export class GameFormComponent implements OnInit {
 
   myForm: FormGroup;
   @Input() game: Game;
+  @Output() submitted: EventEmitter<any> = new EventEmitter();
 
   constructor(private gameService: GamesService) { }
 
@@ -29,6 +30,7 @@ export class GameFormComponent implements OnInit {
       this.game.description = updatedGame.description;
 
       this.gameService.updateGame(this.game);
+      this.submitted.emit(null);
     }
   }
 }

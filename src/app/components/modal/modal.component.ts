@@ -22,6 +22,7 @@ export class ModalComponent implements OnInit {
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.data.component);
     let component = this.host.viewContainerRef.createComponent(componentFactory);
     (<ModalContent>component.instance).data = this.data.payload;
+    (<ModalContent>component.instance).dialogRef = this.dialogRef;
   }
 
   onNoClick(): void {

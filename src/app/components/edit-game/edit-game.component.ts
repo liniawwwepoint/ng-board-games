@@ -11,10 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class EditGameComponent implements OnInit, ModalContent {
 
   data: any;
+  dialogRef: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closePopup() {
+    this.dialogRef.close();
   }
 
 }
