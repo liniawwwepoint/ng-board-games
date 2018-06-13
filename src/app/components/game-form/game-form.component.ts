@@ -21,6 +21,7 @@ export class GameFormComponent implements OnInit {
     this.myForm = new FormGroup({
       name: new FormControl(this.game.name, [Validators.required, Validators.minLength(3)]), 
       description: new FormControl(this.game.description, [Validators.required, Validators.minLength(8)]),
+      isAvailable: new FormControl(this.game.isAvailable ? 'checked' : null)
     })
   }
 

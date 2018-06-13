@@ -60,4 +60,10 @@ export class GamesService {
       this.gamesCollection.doc(game.id).delete()
     );
   }
+
+  addGame(game: Game) {
+    Observable.fromPromise(
+      this.gamesCollection.add(game)
+    )
+  }
 }

@@ -1,3 +1,4 @@
+import { AddGameComponent } from './../add-game/add-game.component';
 import { GamesListCompactComponent } from './../games-list-compact/games-list-compact.component';
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from './../../services/games.service';
