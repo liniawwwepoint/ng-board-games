@@ -54,4 +54,10 @@ export class GamesService {
       )
     );
   }
+
+  removeGame(game: Game) {
+    Observable.fromPromise(
+      this.gamesCollection.doc(game.id).delete()
+    );
+  }
 }

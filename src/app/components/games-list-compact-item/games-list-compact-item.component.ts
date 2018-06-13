@@ -1,3 +1,4 @@
+import { GamesService } from './../../services/games.service';
 import { ModalComponent } from './../modal/modal.component';
 import { EditGameComponent } from './../edit-game/edit-game.component';
 import { Game } from './../../models/game';
@@ -14,7 +15,8 @@ export class GamesListCompactItemComponent implements OnInit {
   @Input('gameItem') game: Game;
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private gameService: GamesService
   ) { }
 
   ngOnInit() {
@@ -28,5 +30,9 @@ export class GamesListCompactItemComponent implements OnInit {
         payload: this.game
       }
     });
+  }
+
+  deleteItem(): void {
+    this.gameService.removeGame(this.game);
   }
 }

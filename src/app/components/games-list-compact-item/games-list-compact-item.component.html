@@ -4,6 +4,6 @@
     <p mat-line> {{game.description}} </p>
 
   <button mat-raised-button color="accent" (click)="openDialog()" >Edytuj <mat-icon mat-list-icon>edit</mat-icon></button>
-  <button mat-raised-button color="#FF0000">Usuń <mat-icon mat-list-icon>delete</mat-icon></button>
+  <button mat-raised-button color="#FF0000" (click)="deleteItem(game)">Usuń <mat-icon mat-list-icon>delete</mat-icon></button>
   <ng-content></ng-content>
 </mat-list-item>
