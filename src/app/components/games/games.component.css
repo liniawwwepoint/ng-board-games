@@ -1,4 +1,19 @@
+
 mat-card {
-    width: 75%;
-    height: 50%;
+  flex-basis: 25%;
+  margin-bottom: 20px;
+  margin: 15px;
+  padding-bottom: 45px;
+}
+mat-card-actions {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 30px;
 }
