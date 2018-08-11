@@ -45,6 +45,7 @@ export class AuthService {
 
   createUserDocument({email, uid}) {
     let user: User = {
+        uid: uid,
         email: email,
         roles: {
           user: true,
