@@ -1,3 +1,4 @@
+import { MessagingService } from 'app/services/messaging.service';
 import { AuthService } from './services/auth.service';
 import { GamesService } from './services/games.service';
 import { environment } from './../environments/environment';
@@ -97,7 +98,8 @@ import { AddGameFormComponent } from './components/add-game-form/add-game-form.c
   ],
   providers: [
     GamesService,
-    AuthService
+    AuthService,
+    MessagingService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,7 @@
+{
+  "short_name": "E-point boardgame",
+  "name": "Board games app",
+  "start_url": "/?utm_source=homescreen",
+
+  "gcm_sender_id": "103953800507"
+}
